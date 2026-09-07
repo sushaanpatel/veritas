@@ -7,7 +7,6 @@ A sophisticated AI-powered research system that uses multiple specialized agents
 - **Multi-Agent Collaboration**: Six specialized agents work together seamlessly
 - **Comprehensive Research**: Automated web search, analysis, synthesis, and fact-checking
 - **Professional Reports**: Generate well-structured markdown reports with citations
-- **Powered by AWS Bedrock**: Uses Claude 3.5 Sonnet via AWS Bedrock for intelligent analysis
 - **Two Orchestration Modes**: Choose between basic (fast) or enhanced (intelligent)
 - **State Persistence**: Long-running research with automatic checkpointing
 - **Human-in-the-Loop**: Review and guide research at critical decision points
