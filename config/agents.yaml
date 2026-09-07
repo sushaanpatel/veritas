@@ -1,0 +1,24 @@
+# Agent Configuration for Multi-Agent Research System
+
+web_search:
+  max_sources: 20
+  search_depth: advanced
+  timeout: 30
+  
+analysis:
+  chunk_size: 2000
+  max_facts: 50
+  confidence_threshold: 0.6
+  
+synthesis:
+  min_sources: 3
+  temperature: 0.3
+  
+fact_checker:
+  verification_sources: 3
+  min_confidence: 0.7
+  
+report_writer:
+  format: markdown
+  max_length: 5000
+  citation_style: APA

@@ -1,0 +1,478 @@
+/**
+ * Global Styles - Claude Design System
+ * Smooth, editorial interface with generous spacing
+ */
+
+/* Import design tokens and component styles */
+@import './design-tokens.css';
+@import './components.css';
+
+/* Import Google Fonts - Cormorant Garamond for display, Inter for body */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  line-height: var(--leading-body);
+  color: var(--color-body);
+  background: var(--color-canvas);
+  min-height: 100vh;
+}
+
+/* ========================================
+   TYPOGRAPHY RESET - Editorial Spacing
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: var(--weight-regular);
+  color: var(--color-ink);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-primary-active);
+}
+
+/* ========================================
+   FORM ELEMENTS RESET
+   ======================================== */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Remove default select arrow */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236c6a64' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+/* ========================================
+   FOCUS STYLES - Smooth & Visible
+   ======================================== */
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   SELECTION STYLES
+   ======================================== */
+
+::selection {
+  background: rgba(204, 120, 92, 0.2);
+  color: var(--color-ink);
+}
+
+::-moz-selection {
+  background: rgba(204, 120, 92, 0.2);
+  color: var(--color-ink);
+}
+
+/* ========================================
+   CODE BLOCKS - Refined
+   ======================================== */
+
+code {
+  font-family: var(--font-code);
+  font-size: 0.9em;
+  background: var(--color-surface-card);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  color: var(--color-body-strong);
+}
+
+pre {
+  font-family: var(--font-code);
+  font-size: var(--text-code);
+  line-height: var(--leading-code);
+  background: var(--color-surface-dark);
+  color: var(--color-on-dark);
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl);
+  overflow-x: auto;
+  margin: var(--space-lg) 0;
+  border: 1px solid var(--color-surface-dark-elevated);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ========================================
+   MARKDOWN CONTENT STYLES - Editorial
+   ======================================== */
+
+.markdown-content {
+  color: var(--color-body);
+  max-width: 100%;
+}
+
+.markdown-content h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-display-md);
+  letter-spacing: var(--tracking-display-md);
+  color: var(--color-ink);
+  margin-top: var(--space-xxxl);
+  margin-bottom: var(--space-xl);
+}
+
+.markdown-content h1:first-child {
+  margin-top: 0;
+}
+
+.markdown-content h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-display-sm);
+  letter-spacing: var(--tracking-display-sm);
+  color: var(--color-ink);
+  margin-top: var(--space-xxl);
+  margin-bottom: var(--space-lg);
+}
+
+.markdown-content h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-title-lg);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-title);
+  color: var(--color-ink);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+.markdown-content h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-title-md);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.markdown-content p {
+  margin-bottom: var(--space-lg);
+  line-height: var(--leading-body);
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: var(--space-lg);
+  padding-left: var(--space-xl);
+}
+
+.markdown-content li {
+  margin-bottom: var(--space-sm);
+  line-height: var(--leading-body);
+}
+
+.markdown-content li::marker {
+  color: var(--color-primary);
+}
+
+.markdown-content blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: var(--space-lg);
+  margin: var(--space-xl) 0;
+  color: var(--color-muted);
+  font-style: italic;
+  background: var(--color-surface-soft);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-xl) 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.markdown-content th,
+.markdown-content td {
+  padding: var(--space-md);
+  border: 1px solid var(--color-hairline);
+  text-align: left;
+}
+
+.markdown-content th {
+  background: var(--color-surface-card);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  font-size: var(--text-body-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.markdown-content a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition-base);
+}
+
+.markdown-content a:hover {
+  color: var(--color-primary-active);
+  border-bottom-color: var(--color-primary-active);
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  margin: var(--space-xl) 0;
+  box-shadow: var(--shadow-soft);
+}
+
+.markdown-content hr {
+  border: none;
+  height: 1px;
+  background: var(--color-hairline);
+  margin: var(--space-xxxl) 0;
+}
+
+/* Inline code in markdown */
+.markdown-content p code,
+.markdown-content li code {
+  background: var(--color-surface-card);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  font-size: 0.9em;
+  color: var(--color-body-strong);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.select-none {
+  user-select: none;
+}
+
+/* Width utilities */
+.w-full { width: 100%; }
+.w-4 { width: 16px; }
+.w-5 { width: 20px; }
+.h-4 { height: 16px; }
+.h-5 { height: 20px; }
+
+/* ========================================
+   ANIMATIONS - Smooth & Subtle
+   ======================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn var(--transition-base);
+}
+
+.animate-slideUp {
+  animation: slideUp var(--transition-base);
+}
+
+.animate-slideDown {
+  animation: slideDown var(--transition-base);
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ========================================
+   SCROLLBAR STYLING - Minimal
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-soft);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted-soft);
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-surface-soft);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .card-dark,
+  .card-code {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  button {
+    display: none;
+  }
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   ======================================== */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .markdown-content h1 {
+    font-size: var(--text-display-sm);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .markdown-content h2 {
+    font-size: var(--text-title-lg);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+  
+  .markdown-content h3 {
+    font-size: var(--text-title-md);
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>Testing API Connection</h1>
+    <button onclick="testAPI()">Test API</button>
+    <button onclick="testDarkMode()">Toggle Dark Mode</button>
+    <pre id="output"></pre>
+    
+    <script>
+        async function testAPI() {
+            const output = document.getElementById('output');
+            try {
+                output.textContent = 'Testing API connection...\n';
+                
+                // Test health endpoint
+                const healthResponse = await fetch('http://localhost:8000/health');
+                const healthData = await healthResponse.json();
+                output.textContent += 'Health check: ' + JSON.stringify(healthData, null, 2) + '\n\n';
+                
+                // Test starting research
+                const researchResponse = await fetch('http://localhost:8000/api/research/start', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        query: 'Test query',
+                        mode: 'basic'
+                    })
+                });
+                
+                if (!researchResponse.ok) {
+                    const error = await researchResponse.text();
+                    output.textContent += 'Research start error: ' + error + '\n';
+                } else {
+                    const researchData = await researchResponse.json();
+                    output.textContent += 'Research started: ' + JSON.stringify(researchData, null, 2) + '\n';
+                }
+            } catch (error) {
+                output.textContent += 'Error: ' + error.message + '\n';
+                output.textContent += 'Stack: ' + error.stack + '\n';
+            }
+        }
+        
+        function testDarkMode() {
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('darkMode', 'false');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('darkMode', 'true');
+            }
+            document.getElementById('output').textContent = 'Dark mode: ' + !isDark + '\n';
+        }
+    </script>
+</body>
+</html>

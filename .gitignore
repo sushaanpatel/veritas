@@ -1,0 +1,84 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+frontend/node_modules/*
+frontend/.next/*
+
+# Environment Variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Logs
+*.log
+logs/
+
+# Research Outputs
+research_report.md
+example_report.md
+streaming_example_report.md
+
+# Planning and Documentation (exclude planning docs but keep core docs)
+*_SUMMARY.md
+*_PLAN.md
+*_CHANGES.md
+*_UPDATES.md
+*_FIXES.md
+*_OVERHAUL.md
+DESIGN.md
+COMPLETE_*.md
+FINAL_*.md
+
+# Keep important documentation
+!README.md
+!AGENTS.md
+!ARCHITECTURE.md
+!IMPLEMENTATION_GUIDE.md
+!QUICKSTART.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# LangSmith
+.langsmith/
+
+# Database
+*.db
+!research.db
